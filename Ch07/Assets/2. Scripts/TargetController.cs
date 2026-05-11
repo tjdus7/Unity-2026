@@ -2,19 +2,22 @@ using UnityEngine;
 
 public class TargetController : MonoBehaviour
 {
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Plyer");
+    }
+    // Update is called once per frame
+    private void Update()
+    {
+        transform.LookAt(player.transform);
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag())
-    }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (collision.gameObject.tag.Equals("Bomsongi"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
